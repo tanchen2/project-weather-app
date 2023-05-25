@@ -117,4 +117,8 @@ h4 {
 .coder {
   text-align: center;
   padding: 15px 15px;
+  font-size: 13px;
+}
+.github-link {
+  text-decoration: none;
 }
