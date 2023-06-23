@@ -20,6 +20,7 @@ if (minutes < 10) {
 let time = `${hours}:${minutes}`;
 let date = document.querySelector("#date");
 date.innerHTML = `${day} ${time}`;
+let icon = document.querySelector("#icon");
 
 function displayWeatherCondition(response) {
   console.log(response);
@@ -35,7 +36,13 @@ function displayWeatherCondition(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  icon.setAttribute("alt", response.data.weather[0].description);
 }
+
 function searchCity(city) {
   let apiKey = "97bed167ec49bff56e6c1b63daef9c86";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
